@@ -58,3 +58,35 @@ Remember to test and save your work after every change!
   * save the file to a memory stick if you need to transport it
 
 ***
+
+##Task 3 - Making a paddle
+
+As Elly said, it's just a rectangle. This time moving with a keybinding.
+
+```python
+# import libraries
+from Tkinter import * 
+
+# create the top level Tk object
+window=Tk()
+window.title("a pong")
+
+# create the canvas
+canvas = Canvas(window, height=600, width=600)
+
+# draw stuff on the canvas
+rect=canvas.create_rectangle(100,100,150,200,fill="brown")
+
+# make it move
+def move_rect(event):
+    canvas.move(rect, 0, 10)
+
+#move_rect()
+canvas.bind("<Up>", move_rect)
+
+# pack the canvas and run the Tk mainloop
+canvas.pack()
+window.mainloop()
+
+```
+
