@@ -40,3 +40,21 @@ canvas.pack()
 window.mainloop()
 
 ```
+
+***
+
+##Task 2 - Running and saving your work
+
+Files and IDEs allow you to save your work, and let you run it at the press of a key.
+
+Remember to test and save your work after every change!
+
+* click *run* at the top left - did you get what you expected?
+  * press this every time you want to see what your code does 
+  * this should then appear in modal form labelled 'Tk'
+
+* click *save* at the top left - no URL this time :/
+  * the first time you will need to give a file name
+  * save the file to a memory stick if you need to transport it
+
+***
