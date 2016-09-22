@@ -12,7 +12,7 @@ Remember the steps in making a minimal  tk canvas:
         #run the mainloop
 ```
 
-Can you spot the extra step is - to name the `something` and make it move!
+Can you spot the extra step - to name the `something` and make it move!
 
 ```python
 # import libraries
