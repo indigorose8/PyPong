@@ -12,11 +12,15 @@ Remember the steps in making a minimal  tk canvas:
         #run the mainloop
 ```
 
+See if you can write your own; if you get really stuck, use the template from the Pizza worksheet.
+
 ***
 
-##Task 2 - Move the ball move
+##Task 2 - Make the ball move
 
-Can you spot the extra step - to name the `something` and make it move!
+You just need one extra step:
+* name the `something` and 
+* make it move!
 
 ```python
 # import libraries
@@ -44,6 +48,8 @@ canvas.pack()
 window.mainloop()
 
 ```
+
+The `after()` function calls the named function after 100ms. Moving things is easy as that!
 
 ***
 
@@ -93,9 +99,11 @@ window.mainloop()
 
 ```
 
+All the keys on the keyboard can have keybindings; the special keys need `< >` the alphabetical keys are just in `" "`.
+
 ***
 
-##Task 5 - What else do the balls and paddle need to do?
+##Task 5 - What else does the Pong game need?
 
 * move the paddle up & down
 * bounce the ball of the paddle
