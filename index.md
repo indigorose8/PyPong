@@ -61,7 +61,7 @@ Remember to test and save your work after every change!
 
 ##Task 3 - Making a paddle
 
-As Elly said, it's just a rectangle. This time moving with a keybinding.
+As Elly said, it's just a rectangle, this time moving with a keybinding.
 
 ```python
 # import libraries
@@ -81,8 +81,7 @@ rect=canvas.create_rectangle(100,100,150,200,fill="brown")
 def move_rect(event):
     canvas.move(rect, 0, 10)
 
-#move_rect()
-canvas.bind("<Up>", move_rect)
+window.bind("<Up>", move_rect)
 
 # pack the canvas and run the Tk mainloop
 canvas.pack()
@@ -90,3 +89,18 @@ window.mainloop()
 
 ```
 
+***
+
+##Task 4 - What else do the balls and paddle need to do?
+
+*move the paddle up & down
+*bounce the ball of the paddle
+*make a goal
+
+***
+
+##Task 5 - Can I make a web version?
+
+jsfiddle & material design colours!
+
+***
