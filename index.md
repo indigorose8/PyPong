@@ -1,6 +1,6 @@
 #Python Pong worksheet
 
-##Task 1 - Move that ball
+##Task 1 - The minimal tk canvas
 
 Remember the steps in making a minimal  tk canvas:
              
@@ -11,6 +11,10 @@ Remember the steps in making a minimal  tk canvas:
         #draw something
         #run the mainloop
 ```
+
+***
+
+##Task 2 - Move the ball move
 
 Can you spot the extra step - to name the `something` and make it move!
 
@@ -43,23 +47,23 @@ window.mainloop()
 
 ***
 
-##Task 2 - Running and saving your work
+##Task 3 - Running and saving your work
 
 Files and IDEs allow you to save your work, and let you run it at the press of a key.
 
 Remember to test and save your work after every change!
 
-* click *run* at the top left - did you get what you expected?
+* click `<F5>` at the top left - did you get what you expected?
   * press this every time you want to see what your code does 
   * this should then appear in modal form labelled 'Tk'
 
-* click *save* at the top left - no URL this time :/
+* click `<Cntrl-S>` - no URL this time :/
   * the first time you will need to give a file name
   * save the file to a memory stick if you need to transport it
 
 ***
 
-##Task 3 - Making a paddle
+##Task 4 - Making a paddle
 
 As Elly said, it's just a rectangle, this time moving with a keybinding.
 
@@ -91,7 +95,7 @@ window.mainloop()
 
 ***
 
-##Task 4 - What else do the balls and paddle need to do?
+##Task 5 - What else do the balls and paddle need to do?
 
 * move the paddle up & down
 * bounce the ball of the paddle
@@ -100,8 +104,9 @@ window.mainloop()
 
 ***
 
-##Task 5 - Can I make a web version?
+##Task 6 - Can I make a web version?
 
-jsfiddle & material design colours!
+* jsfiddle & material design colours!
+* an iPython notebook
 
 ***
