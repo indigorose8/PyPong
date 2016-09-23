@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pypong by JohnReeves</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Pypong</h1>
+      <h2 class="project-tagline">A pong game in Tkinter</h2>
+      <a href="https://github.com/JohnReeves/PyPong" class="btn">View on GitHub</a>
+      <a href="https://github.com/JohnReeves/PyPong/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/JohnReeves/PyPong/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="python-pong-worksheet" class="anchor" href="#python-pong-worksheet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python Pong worksheet</h1>
+
+<h2>
+<a id="task-1---the-minimal-tk-canvas" class="anchor" href="#task-1---the-minimal-tk-canvas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 1 - The minimal tk canvas</h2>
+
+<p>Remember the steps in making a minimal  tk canvas:</p>
+
+<div class="highlight highlight-source-python"><pre>        <span class="pl-c">#import the libraries</span>
+        <span class="pl-c">#create a top level object</span>
+        <span class="pl-c">#attach a canvas</span>
+        <span class="pl-c">#draw something</span>
+        <span class="pl-c">#run the mainloop</span></pre></div>
+
+<p>See if you can write your own; if you get really stuck, use the template from the Pizza worksheet.</p>
+
+<hr>
+
+<h2>
+<a id="task-2---make-the-ball-move" class="anchor" href="#task-2---make-the-ball-move" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 2 - Make the ball move</h2>
+
+<p>You just need one extra step:</p>
+
+<ul>
+<li>name the <code>something</code> and </li>
+<li>make it move!</li>
+</ul>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># import libraries</span>
+<span class="pl-k">from</span> Tkinter <span class="pl-k">import</span> <span class="pl-k">*</span> 
+
+<span class="pl-c"># create the top level Tk object</span>
+window<span class="pl-k">=</span>Tk()
+window.title(<span class="pl-s"><span class="pl-pds">"</span>a pong<span class="pl-pds">"</span></span>)
+
+<span class="pl-c"># create the canvas</span>
+canvas <span class="pl-k">=</span> Canvas(window, <span class="pl-v">height</span><span class="pl-k">=</span><span class="pl-c1">600</span>, <span class="pl-v">width</span><span class="pl-k">=</span><span class="pl-c1">600</span>)
+
+<span class="pl-c"># draw stuff on the canvas</span>
+oval<span class="pl-k">=</span>canvas.create_oval(<span class="pl-c1">200</span>,<span class="pl-c1">200</span>,<span class="pl-c1">300</span>,<span class="pl-c1">300</span>,<span class="pl-v">fill</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>brown<span class="pl-pds">"</span></span>)
+
+<span class="pl-c"># make it move</span>
+<span class="pl-k">def</span> <span class="pl-en">move_oval</span>(<span class="pl-smi">event</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
+    canvas.move(oval, <span class="pl-c1">10</span>, <span class="pl-c1">10</span>)
+    canvas.after(<span class="pl-c1">100</span>, move_oval)
+
+move_oval()
+
+<span class="pl-c"># pack the canvas and run the Tk mainloop</span>
+canvas.pack()
+window.mainloop()
+</pre></div>
+
+<p>The <code>after()</code> function calls the named function after 100ms. Moving things is easy as that!</p>
+
+<hr>
+
+<h2>
+<a id="task-3---running-and-saving-your-work" class="anchor" href="#task-3---running-and-saving-your-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 3 - Running and saving your work</h2>
+
+<p>Files and IDEs allow you to save your work, and let you run it at the press of a key.</p>
+
+<p>Remember to test and save your work after every change! If you are using Idle:</p>
+
+<ul>
+<li>
+<p>click <code>&lt;F5&gt;</code> at the top left - did you get what you expected?</p>
+
+<ul>
+<li>press this every time you want to see what your code does </li>
+<li>this should then appear in modal form labelled 'Tk'</li>
+</ul>
+</li>
+<li>
+<p>click <code>&lt;Cntl-S&gt;</code> - saved locally, no URL this time :/</p>
+
+<ul>
+<li>the first time you will need to give a file name</li>
+<li>save the file to a memory stick if you need to transport it</li>
+</ul>
+</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="task-4---making-a-paddle" class="anchor" href="#task-4---making-a-paddle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 4 - Making a paddle</h2>
+
+<p>As Elly said, it's just a rectangle, this time moving with a keybinding.</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># import libraries</span>
+<span class="pl-k">from</span> Tkinter <span class="pl-k">import</span> <span class="pl-k">*</span> 
+
+<span class="pl-c"># create the top level Tk object</span>
+window<span class="pl-k">=</span>Tk()
+window.title(<span class="pl-s"><span class="pl-pds">"</span>a pong<span class="pl-pds">"</span></span>)
+
+<span class="pl-c"># create the canvas</span>
+canvas <span class="pl-k">=</span> Canvas(window, <span class="pl-v">height</span><span class="pl-k">=</span><span class="pl-c1">600</span>, <span class="pl-v">width</span><span class="pl-k">=</span><span class="pl-c1">600</span>)
+
+<span class="pl-c"># draw stuff on the canvas</span>
+rect<span class="pl-k">=</span>canvas.create_rectangle(<span class="pl-c1">100</span>,<span class="pl-c1">100</span>,<span class="pl-c1">150</span>,<span class="pl-c1">200</span>,<span class="pl-v">fill</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>brown<span class="pl-pds">"</span></span>)
+
+<span class="pl-c"># make it move</span>
+<span class="pl-k">def</span> <span class="pl-en">move_rect</span>(<span class="pl-smi">event</span>):
+    canvas.move(rect, <span class="pl-c1">0</span>, <span class="pl-c1">10</span>)
+
+window.bind(<span class="pl-s"><span class="pl-pds">"</span>&lt;Up&gt;<span class="pl-pds">"</span></span>, move_rect)
+
+<span class="pl-c"># pack the canvas and run the Tk mainloop</span>
+canvas.pack()
+window.mainloop()
+</pre></div>
+
+<p>All the keys on the keyboard can have keybindings; the special keys need <code>&lt; &gt;</code> the alphabetical keys are just in <code>" "</code>.</p>
+
+<hr>
+
+<h2>
+<a id="task-5---what-else-does-the-pong-game-need" class="anchor" href="#task-5---what-else-does-the-pong-game-need" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 5 - What else does the Pong game need?</h2>
+
+<ul>
+<li>move the paddle up &amp; down</li>
+<li>bounce the ball of the paddle</li>
+<li>make a goal &amp; score card</li>
+<li>change the colours</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="task-6---can-i-make-a-web-version" class="anchor" href="#task-6---can-i-make-a-web-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 6 - Can I make a web version?</h2>
+
+<ul>
+<li>jsfiddle &amp; material design colours!</li>
+<li>an iPython notebook</li>
+</ul>
+
+<hr>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/JohnReeves/PyPong">Pypong</a> is maintained by <a href="https://github.com/JohnReeves">JohnReeves</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
