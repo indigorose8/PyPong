@@ -93,9 +93,10 @@ window.mainloop()
 
 ##Task 4 - What else do the balls and paddle need to do?
 
-*move the paddle up & down
-*bounce the ball of the paddle
-*make a goal
+* move the paddle up & down
+* bounce the ball of the paddle
+* make a goal & score card
+* change the colours
 
 ***
 
