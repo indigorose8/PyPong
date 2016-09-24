@@ -2,6 +2,8 @@
 
 ##Task 1 - The minimal tk canvas
 
+The Pizza worksheet shows you how to make simple shapes, such as circles and rectangles, and shows you how to write functions that take parameters.
+
 Remember the steps in making a minimal  tk canvas:
              
 ```python
