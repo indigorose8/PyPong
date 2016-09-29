@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Pypong by John Reeves</title>
+    <title>Pypong by JohnReeves</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -11,16 +11,21 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">PyPong</h1>
+      <h1 class="project-name">Pypong</h1>
       <h2 class="project-tagline">A pong game in Tkinter</h2>
+      <a href="https://github.com/JohnReeves/PyPong" class="btn">View on GitHub</a>
+      <a href="https://github.com/JohnReeves/PyPong/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/JohnReeves/PyPong/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <h1>
-<a id="python-pong-worksheet" class="anchor" href="#python-pong-worksheet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a></h1>
+<a id="python-pong-worksheet" class="anchor" href="#python-pong-worksheet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python Pong worksheet</h1>
 
 <h2>
 <a id="task-1---the-minimal-tk-canvas" class="anchor" href="#task-1---the-minimal-tk-canvas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 1 - The minimal tk canvas</h2>
+
+<p>The Pizza worksheet shows you how to make simple shapes, such as circles and rectangles, and shows you how to write functions that take parameters.</p>
 
 <p>Remember the steps in making a minimal  tk canvas:</p>
 
@@ -138,8 +143,8 @@ window.mainloop()
 <a id="task-5---what-else-does-the-pong-game-need" class="anchor" href="#task-5---what-else-does-the-pong-game-need" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 5 - What else does the Pong game need?</h2>
 
 <ul>
+<li>bounce the ball off the edge</li>
 <li>move the paddle up &amp; down</li>
-<li>bounce the ball of the paddle</li>
 <li>make a goal &amp; score card</li>
 <li>change the colours</li>
 </ul>
@@ -147,7 +152,79 @@ window.mainloop()
 <hr>
 
 <h2>
-<a id="task-6---can-i-make-a-web-version" class="anchor" href="#task-6---can-i-make-a-web-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 6 - Can I make a web version?</h2>
+<a id="task-6---can-i-make-the-ball-bounce" class="anchor" href="#task-6---can-i-make-the-ball-bounce" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 6 - Can I make the ball bounce?</h2>
+
+<p>Bounces happen when things change direction, and go in the opposite direction with the same speed!</p>
+
+<p>So, my ball needs to change direction when it gets to the edge - if on edge bounce - sounds familiar?</p>
+
+<div class="highlight highlight-source-python"><pre>
+<span class="pl-c"># invariants</span>
+c_height,c_width<span class="pl-k">=</span><span class="pl-c1">350</span>,<span class="pl-c1">350</span>
+ballx, bally<span class="pl-k">=</span><span class="pl-c1">0</span>, <span class="pl-c1">0</span>
+balldx, balldy<span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-c1">5</span>
+
+<span class="pl-k">def</span> <span class="pl-en">move_oval</span>():
+    <span class="pl-c"># 'global' needed to stop python making a new thing</span>
+    <span class="pl-c"># with the same name as the things outside</span>
+    <span class="pl-c"># other languages work other way.</span>
+    <span class="pl-c"># try removing these lines to see what happens.</span>
+    <span class="pl-k">global</span> ballx,bally
+    <span class="pl-k">global</span> balldx,balldy
+
+    <span class="pl-k">if</span> ballx<span class="pl-k">&lt;</span><span class="pl-c1">10</span> <span class="pl-k">or</span> ballx<span class="pl-k">&gt;</span>c_width:
+        balldx<span class="pl-k">=</span><span class="pl-k">-</span>balldx
+
+    <span class="pl-k">if</span> bally<span class="pl-k">&lt;</span><span class="pl-c1">10</span> <span class="pl-k">or</span> bally<span class="pl-k">&gt;</span>c_height:
+        balldy<span class="pl-k">=</span><span class="pl-k">-</span>balldy
+
+    ballx<span class="pl-k">+=</span>balldx
+    bally<span class="pl-k">+=</span>balldy
+    canvas.move(oval,balldx,balldy)
+    canvas.after(<span class="pl-c1">100</span>, move_oval)</pre></div>
+
+<p>Looks hard because I have to tell the computer <code>exactly</code> what to do.</p>
+
+<p>Remember to remove the globals to see what happens - we are here to learn, not just to get the right answer.</p>
+
+<hr>
+
+<h2>
+<a id="task-7---can-i-stop-the-bat-moving-at-the-edge" class="anchor" href="#task-7---can-i-stop-the-bat-moving-at-the-edge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 7 - Can I stop the bat moving at the edge?</h2>
+
+<p>This one is easy, only allow the bat to move if it hasn't got to the edge yet!</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># invariants</span>
+baty<span class="pl-k">=</span><span class="pl-c1">0</span>
+
+bat<span class="pl-k">=</span>canvas.create_rectangle(<span class="pl-c1">50</span>,<span class="pl-c1">0</span>,<span class="pl-c1">50</span>,<span class="pl-c1">100</span>)
+
+<span class="pl-k">def</span> <span class="pl-en">move_up</span>(<span class="pl-smi">event</span>):
+    <span class="pl-c"># remember why we need 'global'</span>
+    <span class="pl-k">global</span> baty
+    baty<span class="pl-k">-=</span><span class="pl-c1">10</span>
+    <span class="pl-k">if</span> baty<span class="pl-k">&gt;</span><span class="pl-c1">0</span>:
+       canvas.move(bat,<span class="pl-c1">0</span>,<span class="pl-k">-</span><span class="pl-c1">10</span>)
+
+<span class="pl-k">def</span> <span class="pl-en">move_down</span>(<span class="pl-smi">event</span>):
+    <span class="pl-k">global</span> baty
+    baty<span class="pl-k">+=</span><span class="pl-c1">10</span>
+    <span class="pl-k">if</span> bat<span class="pl-k">&lt;</span>c_height<span class="pl-k">-</span><span class="pl-c1">100</span>:
+       canvas.move(bat,<span class="pl-c1">0</span>,<span class="pl-c1">10</span>)</pre></div>
+
+<h2>
+<a id="task-8---make-the-rest-of-the-board" class="anchor" href="#task-8---make-the-rest-of-the-board" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task 8 - Make the rest of the board?</h2>
+
+<p>We already know how to make rectangles and lines!</p>
+
+<p>We know how to make text boxes - we just need to change the values we show.</p>
+
+<p>Remember to make a scoring zone for the ball.</p>
+
+<hr>
+
+<h2>
+<a id="challenges" class="anchor" href="#challenges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Challenges</h2>
 
 <ul>
 <li>jsfiddle &amp; material design colours!</li>
