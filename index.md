@@ -127,7 +127,7 @@ c_height,c_width=350,350
 ballx, bally=0, 0
 balldx, balldy=5, 5
 
-def move_ball():
+def move_oval():
     # 'global' needed to stop python making a new thing
     # with the same name as the things outside
     # other languages work other way.
@@ -144,7 +144,7 @@ def move_ball():
     ballx+=balldx
     bally+=balldy
     canvas.move(oval,balldx,balldy)
-    canvas.after(100, move_ball)
+    canvas.after(100, move_oval)
 ```
 
 Looks hard because I have to tell the computer ```exactly``` what to do.
