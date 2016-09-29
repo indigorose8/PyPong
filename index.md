@@ -107,8 +107,8 @@ All the keys on the keyboard can have keybindings; the special keys need `< >` t
 
 ##Task 5 - What else does the Pong game need?
 
-* move the paddle up & down
 * bounce the ball of the paddle
+* move the paddle up & down
 * make a goal & score card
 * change the colours
 
@@ -124,10 +124,8 @@ So, my ball needs to change direction when it gets to the edge - if on edge boun
 
 # invariants
 c_height,c_width=400,400
-ballx=0
-bally=0
-balldx=5
-balldy=5
+ballx, bally=0, 0
+balldx, balldy=5, 5
 
 def move_ball():
     # 'global' needed to stop python making a new thing
@@ -159,6 +157,43 @@ def move_ball():
 Looks hard because I have to tell the computer ```exactly``` what to do.
 
 Remember to remove the globals to see what happens - we are here to learn, not just to get the right answer.
+
+***
+
+##Task 7 - Can I stop the bat moving at the edge?
+
+This one is easy, only allow the bat to move if it hasn't got to the edge yet!
+
+```python
+# invariants
+baty=0
+
+bat=canvas.create_rectangle(50,0,50,100)
+
+def move_up(event):
+    # remember why we need 'global'
+    global baty
+    baty-=10
+    if baty>0:
+       canvas.move(bat,0,-10)
+
+def move_down(event):
+    global baty
+    baty+=10
+    if bat<c_height-100:
+       canvas.move(bat,0,10)
+```
+
+##Task 8 - Make the rest of the board?
+
+We already know how to make rectangles and lines!
+
+We know how to make text boxes - we just need to change the values we show.
+
+Remember to make a scoring zone for the ball.
+
+
+***
 
 ##Challenges
 
