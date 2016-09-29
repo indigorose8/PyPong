@@ -107,7 +107,7 @@ All the keys on the keyboard can have keybindings; the special keys need `< >` t
 
 ##Task 5 - What else does the Pong game need?
 
-* bounce the ball of the paddle
+* bounce the ball off the edge
 * move the paddle up & down
 * make a goal & score card
 * change the colours
