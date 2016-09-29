@@ -123,7 +123,7 @@ So, my ball needs to change direction when it gets to the edge - if on edge boun
 ```python
 
 # invariants
-c_height,c_width=400,400
+c_height,c_width=350,350
 ballx, bally=0, 0
 balldx, balldy=5, 5
 
@@ -134,23 +134,16 @@ def move_ball():
     # try removing these lines to see what happens.
     global ballx,bally
     global balldx,balldy
-    
-    if balldx>0:
-      if ballx == c_width-10:
-        balldx=balldx*-1
-    if balldx<0:
-      if ballx == 0+10:
-        balldx=balldx*-1
-    if balldy>0:
-      if bally == c_height-10:
-        balldy=balldy*-1
-    if balldy<0:
-      if bally == 0+10:
-        balldy=balldy*-1
- 
+
+    if ballx<10 or ballx>c_width:
+        balldx=-balldx
+
+    if bally<10 or bally>c_height:
+        balldy=-balldy
+
     ballx+=balldx
     bally+=balldy
-    canvas.move(ball,balldx,balldy)
+    canvas.move(oval,balldx,balldy)
     canvas.after(100, move_ball)
 ```
 
