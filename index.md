@@ -114,7 +114,53 @@ All the keys on the keyboard can have keybindings; the special keys need `< >` t
 
 ***
 
-##Task 6 - Can I make a web version?
+##Task 6 - Can I make the ball bounce?
+
+Bounces happen when things change direction, and go in the opposite direction with the same speed!
+
+So, my ball needs to change direction when it gets to the edge - if on edge bounce - sounds familiar?
+
+```python
+
+# invariants
+c_height,c_width=400,400
+ballx=0
+bally=0
+balldx=5
+balldy=5
+
+def move_ball():
+    # 'global' needed to stop python making a new thing
+    # with the same name as the things outside
+    # other languages work other way.
+    # try removing these lines to see what happens.
+    global ballx,bally
+    global balldx,balldy
+    
+    if balldx>0:
+      if ballx == c_width-10:
+        balldx=balldx*-1
+    if balldx<0:
+      if ballx == 0+10:
+        balldx=balldx*-1
+    if balldy>0:
+      if bally == c_height-10:
+        balldy=balldy*-1
+    if balldy<0:
+      if bally == 0+10:
+        balldy=balldy*-1
+ 
+    ballx+=balldx
+    bally+=balldy
+    canvas.move(ball,balldx,balldy)
+    canvas.after(100, move_ball)
+```
+
+Looks hard because I have to tell the computer ```exactly``` what to do.
+
+Remember to remove the globals to see what happens - we are here to learn, not just to get the right answer.
+
+##Challenges
 
 * jsfiddle & material design colours!
 * an iPython notebook
