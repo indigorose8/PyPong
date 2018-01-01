@@ -1,6 +1,6 @@
-#Python Pong worksheet
+# Python Pong worksheet
 
-##Task 1 - The minimal tk canvas
+## Task 1 - The minimal tk canvas
 
 The Pizza worksheet shows you how to make simple shapes, such as circles and rectangles, and shows you how to write functions that take parameters.
 
@@ -18,7 +18,7 @@ See if you can write your own; if you get really stuck, use the template from th
 
 ***
 
-##Task 2 - Make the ball move
+## Task 2 - Make the ball move
 
 You just need one extra step:
 * name the `something` and 
@@ -55,7 +55,7 @@ The `after()` function calls the named function after 100ms. Moving things is ea
 
 ***
 
-##Task 3 - Running and saving your work
+## Task 3 - Running and saving your work
 
 Files and IDEs allow you to save your work, and let you run it at the press of a key.
 
@@ -71,7 +71,7 @@ Remember to test and save your work after every change! If you are using Idle:
 
 ***
 
-##Task 4 - Making a paddle
+## Task 4 - Making a paddle
 
 As Elly said, it's just a rectangle, this time moving with a keybinding.
 
@@ -105,7 +105,7 @@ All the keys on the keyboard can have keybindings; the special keys need `< >` t
 
 ***
 
-##Task 5 - What else does the Pong game need?
+## Task 5 - What else does the Pong game need?
 
 * bounce the ball off the edge
 * move the paddle up & down
@@ -114,7 +114,7 @@ All the keys on the keyboard can have keybindings; the special keys need `< >` t
 
 ***
 
-##Task 6 - Can I make the ball bounce?
+## Task 6 - Can I make the ball bounce?
 
 Bounces happen when things change direction, and go in the opposite direction with the same speed!
 
@@ -153,7 +153,7 @@ Remember to remove the globals to see what happens - we are here to learn, not j
 
 ***
 
-##Task 7 - Can I stop the bat moving at the edge?
+## Task 7 - Can I stop the bat moving at the edge?
 
 This one is easy, only allow the bat to move if it hasn't got to the edge yet!
 
@@ -177,7 +177,7 @@ def move_down(event):
        canvas.move(bat,0,10)
 ```
 
-##Task 8 - Make the rest of the board?
+## Task 8 - Make the rest of the board?
 
 We already know how to make rectangles and lines!
 
@@ -188,7 +188,7 @@ Remember to make a scoring zone for the ball.
 
 ***
 
-##Challenges
+## Challenges
 
 * jsfiddle & material design colours!
 * an iPython notebook
