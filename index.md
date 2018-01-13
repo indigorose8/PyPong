@@ -27,6 +27,7 @@ You just need one extra step:
 ```python
 # import libraries
 from Tkinter import * 
+from random import randint
 
 # create the top level Tk object
 window=Tk()
@@ -126,6 +127,8 @@ So, my ball needs to change direction when it gets to the edge - if on edge boun
 c_height,c_width=350,350
 ballx, bally=0, 0
 balldx, balldy=5, 5
+rndx=randint(0,5)
+rndy=randint(0,5)
 
 def move_oval():
     # 'global' needed to stop python making a new thing
@@ -135,11 +138,17 @@ def move_oval():
     global ballx,bally
     global balldx,balldy
 
-    if ballx<10 or ballx>c_width:
-        balldx=-balldx
+    if ballx<10:
+        balldx=(balldx+rndx)
+    
+    if ballx>c_width:
+        balldx=-(balldx+rndx)
 
-    if bally<10 or bally>c_height:
-        balldy=-balldy
+    if bally<10:
+        balldy=(balldy+rndy)
+     
+    if bally>c_height:
+        balldy=-(balldy+rndy)
 
     ballx+=balldx
     bally+=balldy
